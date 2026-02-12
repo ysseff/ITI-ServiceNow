@@ -1,0 +1,21 @@
+<script>
+    let answer = prompt("Who's there?")
+    if (answer === "admin" || answer === "Admin") {
+        let password = prompt("Password?")
+        if (password === "TheMaster") {
+            alert("Welcome!");
+        }
+        else if (password === null || password === "") {
+            alert("Canceled");
+        }
+        else {
+            alert("Wrong password");
+        }
+    } 
+    else if (answer === null || answer === "") {
+        alert("Canceled");
+    }
+    else {
+        alert("I don't know you");
+    }
+</script>
