@@ -22,13 +22,112 @@
 
 
     //--------------------------Task 2------------------------//
-    do {
-        number = prompt("enter a number greater than 100");
-        if (number === null || number === "") {
-            break;
-        }
+    // do {
+    //     number = prompt("enter a number greater than 100");
+    //     if (number === null || number === "") {
+    //         break;
+    //     }
+    // }
+    // while (number <= 100) 
+    // alert("done");
+
+    //--------------------------Task 3------------------------//
+//     let n = Number(prompt("enter a number"));
+//     let primeNumbers = [];
+
+//     for (let i = 2; i <= n; i++) {
+//         let isPrime = true;
+
+//         for (let j = 2; j < i; j++) {
+//             if (i % j === 0) {
+//                 isPrime = false;
+//                 break;
+//             }
+//         }
+
+//         if (isPrime) {
+//             primeNumbers.push(i);
+//         }
+//     }
+
+//    alert(primeNumbers);
+
+//--------------------------Task 4------------------------//
+// function addStudent() {
+//     let name = prompt("Enter student name");
+//     let age = prompt("Enter student age");
+//     let grades = [];
+//     let grade;
+    
+//     do {
+//         grade = prompt("Enter student grade");
+
+//         if (grade === null || grade === "") {
+//             if (grades.length >= 3) {
+//                 break;
+//             }
+//             alert("You need to enter at least 3 grades.");
+//             continue;
+//         }
+
+//         let numeric_grade = Number(grade);
+//         let valid_grade = numeric_grade >= 0 && numeric_grade <= 100 && !Number.isNaN(numeric_grade);
+
+//         if (!valid_grade) {
+//             alert("Invalid grade. Please enter a grade between 0 and 100.");
+//             continue;
+//         }
+        
+//         if (!Number.isNaN(numeric_grade) && valid_grade) {
+//             grades.push(numeric_grade);
+//         }
+//     } while (true)
+
+//     return {name, age, grades};
+// }
+
+// function displayReport(student) {
+//     let average_grade = student.grades.reduce((acc, b) => acc + b, 0) / student.grades.length;
+//     let highest_grade = Math.max(...student.grades);
+//     let lowest_grade = Math.min(...student.grades);
+//     let student_status = average_grade >= 60 ? "Pass" : "Fail";
+//     let grade_classification = average_grade >= 90 ? "Excellent" : average_grade >= 80 ? "Very Good" : average_grade >= 70 ? "Good" : average_grade >= 60 ? "Pass" : "Fail";
+
+//     return `Name: ${student.name}\nGrades: ${student.grades.join(", ")}\nAverage Grade: ${average_grade}\nHighest Grade: ${highest_grade}\nLowest Grade: ${lowest_grade}\nStudent Status: ${student_status}\nGrade Classification: ${grade_classification}\nTotal Grades Entered: ${student.grades.length}\n-------------------------------------\n`
+// } 
+
+// function main() {
+//     let students = [];
+//     let add_more = true;
+//     while (add_more) {
+//         let student = addStudent();
+//         students.push(student);
+//         add_more = confirm("Do you want to add another student?");
+//     } 
+
+//     let report = "";
+//     for (let student of students) {
+//         report += displayReport(student);
+//     }
+
+//     alert(report);
+// }
+
+// main();
+
+//--------------------------Task 5------------------------//
+function pow(x, n){
+    if (n === 0) {
+        return 1;
     }
-    while (number <= 100) 
-    alert("done");
+    else if (n < 0) {
+        return 1 / pow(x, -n);
+    }
+    else {
+        return x * pow(x, n - 1);
+    }
+}
+
+alert(pow(2, 2));
 
 </script>
