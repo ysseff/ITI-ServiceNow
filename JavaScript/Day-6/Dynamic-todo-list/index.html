@@ -46,6 +46,13 @@
             deleteButton.className = 'delete-button';
             deleteButton.addEventListener('click', deleteTodo);
             todoItem.appendChild(deleteButton);
+
+            let markCompleteButton = document.createElement('button');
+            markCompleteButton.textContent = 'Mark Complete';
+            markCompleteButton.className = 'mark-complete-button';
+            markCompleteButton.addEventListener('click', markComplete);
+            todoItem.appendChild(markCompleteButton);
+
             count.textContent = parseInt(count.textContent) + 1;
         }
 
@@ -53,6 +60,12 @@
             let todoItem = event.target.parentElement;
             todoItem.remove();
             count.textContent = parseInt(count.textContent) - 1;
+        }
+
+        function markComplete(event) {
+            let todoItem = event.target.parentElement;
+            todoItem.style.textDecoration = 'line-through';
+            todoItem.style.color = '#999999';
         }
     </script>
 </body>

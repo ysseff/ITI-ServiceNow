@@ -104,3 +104,14 @@ li {
     justify-content: space-between;
     align-items: center;
 }
+
+.mark-complete-button {
+    background-color: #1eb316;
+    color: #ffffff;
+    height:45px;
+    border-radius: 20px;
+    white-space: nowrap;
+    width: auto;
+    border-width: 0;
+    align-self: flex-end;
+}
