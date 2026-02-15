@@ -15,39 +15,38 @@
             
             switch (choice) {
                 case "1":
-                    addBook(books);
+                    addBook();
                     break
 
                 case "2":
-                    borrowBook(books)
+                    borrowBook()
                     break
 
                 case "3":
-                    returnBook(books)
+                    returnBook()
                     break
 
                 case "4":
-                    showReport(books)
+                    showReport()
                     break    
 
                 default:
                     alert("Invalid choice");
             }
             
-            let continueChoice = prompt("Do you want to perform another operation? (yes/no)");
-            if (continueChoice === null || continueChoice.toLowerCase() !== "yes") {
+            if (!confirm("Do you want to perform another operation?")) {
                 continueLoop = false;
                 alert("Thank you for using the library management system!");
             }
         }
 
-        function addBook(books) {
+        function addBook() {
             let bookName = prompt("Enter the title of the book:");
                 if (bookName === null || bookName === "") {
                     alert("Book name cannot be empty");
                     return;
                 } 
-                else if (books.some(book => book.bookName === bookName)) {
+                else if (books.some(book => book.bookName.toLowerCase() === bookName.toLowerCase())) {
                     alert("Book already exists");
                     return
                 }
@@ -86,13 +85,13 @@
                 alert("Book added successfully")
             }
 
-            function borrowBook(books) {
+            function borrowBook() {
                 let toBorrowList = ""
                 for (let i = 0; i < books.length; i++) {
                     toBorrowList += `${i+1}. ${books[i].bookName} by ${books[i].authorName} (${books[i].availableCopies} available)\n`;
                 }
-                alert(toBorrowList);
-                let bookToBorrow = prompt("Enter the number of the book you want to borrow:");
+
+                let bookToBorrow = prompt(`${toBorrowList}\n\nEnter the number of the book you want to borrow:`);
                 if (bookToBorrow === null || bookToBorrow === "") {
                     alert("Book number cannot be empty");
                     return
@@ -107,13 +106,13 @@
                 alert("Book borrowed successfully")
             }
 
-            function returnBook(books) {
+            function returnBook() {
                 let toReturnList = ""
                 for (let i = 0; i < books.length; i++) {
                     toReturnList += `${i+1}. ${books[i].bookName} by ${books[i].authorName} (${books[i].borrowedCopies} borrowed)\n`;
                 }
-                alert(toReturnList);
-                let bookToReturn = prompt("Enter the number of the book you want to return:");
+
+                let bookToReturn = prompt(`${toReturnList}\n\nEnter the number of the book you want to return:`);
                 if (bookToReturn === null || bookToReturn === "") {
                     alert("Book number cannot be empty");
                     return
@@ -128,7 +127,7 @@
                 alert("Book returned successfully")
             }
 
-            function calculateTotalBooks(books){
+            function calculateTotalBooks(){
                 let totalAvailableCopies = 0
                 let totalBorrowedCopies = 0
                 for (let i = 0; i < books.length; i++) {
@@ -138,12 +137,12 @@
                 return totalAvailableCopies + totalBorrowedCopies
             }
 
-            function showReport(books){
+            function showReport(){
                 let report = ""
                 for (let i = 0; i < books.length; i++) {
                     report += `${books[i].bookName} by ${books[i].authorName} (${books[i].availableCopies} available, ${books[i].borrowedCopies} borrowed)\n`;
                 }
-                report += `Total books: ${calculateTotalBooks(books)}\n`;
+                report += `Total books: ${calculateTotalBooks()}\n`;
                 alert(report);
             }
     </script>
