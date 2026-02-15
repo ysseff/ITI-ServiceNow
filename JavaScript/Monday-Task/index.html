@@ -8,13 +8,74 @@
 <body>
     <script>
         let books = [];
-        let choice = prompt("Enter your choice:\n1. Add books\n2. Borrow books\n3. Return books\n4. Display library report");
-        switch (choice) {
-            case "1":
-                let bookName = prompt("Enter the title of the book:");
+        let continueLoop = true;
+        
+        while (continueLoop) {
+            let choice = prompt("Enter your choice:\n1. Add books\n2. Borrow books\n3. Return books\n4. Display library report");
+            
+            switch (choice) {
+                case "1":
+                    addBook(books);
+                    break
+
+                case "2":
+                    borrowBook(books)
+                    break
+
+                case "3":
+                    returnBook(books)
+                    break
+
+                case "4":
+                    showReport(books)
+                    break    
+
+                default:
+                    alert("Invalid choice");
+            }
+            
+            let continueChoice = prompt("Do you want to perform another operation? (yes/no)");
+            if (continueChoice === null || continueChoice.toLowerCase() !== "yes") {
+                continueLoop = false;
+                alert("Thank you for using the library management system!");
+            }
+        }
+
+        function addBook(books) {
+            let bookName = prompt("Enter the title of the book:");
+                if (bookName === null || bookName === "") {
+                    alert("Book name cannot be empty");
+                    return;
+                } 
+                else if (books.some(book => book.bookName === bookName)) {
+                    alert("Book already exists");
+                    return
+                }
                 let authorName = prompt("Enter the author of the book:");
+                if (authorName === null || authorName === "") {
+                    alert("Author name cannot be empty")
+                    return;
+                }
                 let availableCopies = prompt("Enter the number of copies available:");
+                if (availableCopies === null || availableCopies === "") {
+                    alert("Available copies cannot be empty");
+                    return
+                }
+                availableCopies = parseInt(availableCopies);
+                if (isNaN(availableCopies) || availableCopies < 0) {
+                    alert("Available copies must be a valid non-negative number");
+                    return;
+                }
                 let borrowedCopies = prompt("Enter the number of copies borrowed:");
+                if (borrowedCopies === null || borrowedCopies === "") {
+                    alert("Borrowed copies cannot be empty");
+                    return
+                }
+                borrowedCopies = parseInt(borrowedCopies);
+                if (isNaN(borrowedCopies) || borrowedCopies < 0) {
+                    alert("Borrowed copies must be a valid non-negative number");
+                    return
+                }
                 let book = {
                     bookName: bookName,
                     authorName: authorName,
@@ -22,17 +83,69 @@
                     borrowedCopies: borrowedCopies
                 };
                 books.push(book);
-                alert("Book added successfully");
-                break;
-            case "2":
-                break;
-            case "3":
-                break;
-            case "4":
-                break;
-            default:
-                alert("Invalid choice");
-        }
+                alert("Book added successfully")
+            }
+
+            function borrowBook(books) {
+                let toBorrowList = ""
+                for (let i = 0; i < books.length; i++) {
+                    toBorrowList += `${i+1}. ${books[i].bookName} by ${books[i].authorName} (${books[i].availableCopies} available)\n`;
+                }
+                alert(toBorrowList);
+                let bookToBorrow = prompt("Enter the number of the book you want to borrow:");
+                if (bookToBorrow === null || bookToBorrow === "") {
+                    alert("Book number cannot be empty");
+                    return
+                }
+                bookToBorrow = parseInt(bookToBorrow);
+                if (isNaN(bookToBorrow) || bookToBorrow < 1 || bookToBorrow > books.length || books[bookToBorrow-1].availableCopies === 0) {
+                    alert("Invalid book number or no copies available");
+                    return
+                }
+                books[bookToBorrow-1].availableCopies--
+                books[bookToBorrow-1].borrowedCopies++
+                alert("Book borrowed successfully")
+            }
+
+            function returnBook(books) {
+                let toReturnList = ""
+                for (let i = 0; i < books.length; i++) {
+                    toReturnList += `${i+1}. ${books[i].bookName} by ${books[i].authorName} (${books[i].borrowedCopies} borrowed)\n`;
+                }
+                alert(toReturnList);
+                let bookToReturn = prompt("Enter the number of the book you want to return:");
+                if (bookToReturn === null || bookToReturn === "") {
+                    alert("Book number cannot be empty");
+                    return
+                }
+                bookToReturn = parseInt(bookToReturn);
+                if (isNaN(bookToReturn) || bookToReturn < 1 || bookToReturn > books.length || books[bookToReturn-1].borrowedCopies === 0) {
+                    alert("Invalid book number or no borrowed copies");
+                    return
+                }
+                books[bookToReturn-1].availableCopies++
+                books[bookToReturn-1].borrowedCopies--
+                alert("Book returned successfully")
+            }
+
+            function calculateTotalBooks(books){
+                let totalAvailableCopies = 0
+                let totalBorrowedCopies = 0
+                for (let i = 0; i < books.length; i++) {
+                    totalAvailableCopies += books[i].availableCopies
+                    totalBorrowedCopies += books[i].borrowedCopies
+                }
+                return totalAvailableCopies + totalBorrowedCopies
+            }
+
+            function showReport(books){
+                let report = ""
+                for (let i = 0; i < books.length; i++) {
+                    report += `${books[i].bookName} by ${books[i].authorName} (${books[i].availableCopies} available, ${books[i].borrowedCopies} borrowed)\n`;
+                }
+                report += `Total books: ${calculateTotalBooks(books)}\n`;
+                alert(report);
+            }
     </script>
 </body>
 </html>
