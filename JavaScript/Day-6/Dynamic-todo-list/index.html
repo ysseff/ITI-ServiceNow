@@ -34,38 +34,50 @@
         function addTodo() {
             let todoInput = document.getElementById('input-box');
             let todoList = document.getElementById('todo-list');
-            let todoItem = document.createElement('li');
-            todoItem.textContent = todoInput.value;
             if (todoInput.value === '') {
                 return;
             }
-            todoList.appendChild(todoItem);
             
-            let deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Delete';
-            deleteButton.className = 'delete-button';
-            deleteButton.addEventListener('click', deleteTodo);
-            todoItem.appendChild(deleteButton);
-
+            let todoItem = document.createElement('li');
+            
+            let todoText = document.createElement('span');
+            todoText.className = 'todo-text';
+            todoText.textContent = todoInput.value;
+            todoItem.appendChild(todoText);
+            
+            let buttonContainer = document.createElement('div');
+            buttonContainer.className = 'button-container';
+            
             let markCompleteButton = document.createElement('button');
             markCompleteButton.textContent = 'Mark Complete';
             markCompleteButton.className = 'mark-complete-button';
             markCompleteButton.addEventListener('click', markComplete);
-            todoItem.appendChild(markCompleteButton);
+            buttonContainer.appendChild(markCompleteButton);
+
+            let deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.className = 'delete-button';
+            deleteButton.addEventListener('click', deleteTodo);
+            buttonContainer.appendChild(deleteButton);
+            
+            todoItem.appendChild(buttonContainer);
+            todoList.appendChild(todoItem);
 
             count.textContent = parseInt(count.textContent) + 1;
+            todoInput.value = '';
         }
 
         function deleteTodo(event) {
-            let todoItem = event.target.parentElement;
+            let todoItem = event.target.parentElement.parentElement;
             todoItem.remove();
             count.textContent = parseInt(count.textContent) - 1;
         }
 
         function markComplete(event) {
-            let todoItem = event.target.parentElement;
-            todoItem.style.textDecoration = 'line-through';
-            todoItem.style.color = '#999999';
+            let todoItem = event.target.parentElement.parentElement;
+            let todoText = todoItem.querySelector('.todo-text');
+            todoText.style.textDecoration = 'line-through';
+            todoText.style.color = '#999999';
         }
     </script>
 </body>

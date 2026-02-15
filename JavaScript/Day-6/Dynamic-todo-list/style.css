@@ -105,6 +105,18 @@ li {
     align-items: center;
 }
 
+.todo-text {
+    flex: 1;
+    margin-right: 10px;
+    word-break: break-word;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
 .mark-complete-button {
     background-color: #1eb316;
     color: #ffffff;
@@ -113,5 +125,4 @@ li {
     white-space: nowrap;
     width: auto;
     border-width: 0;
-    align-self: flex-end;
 }
