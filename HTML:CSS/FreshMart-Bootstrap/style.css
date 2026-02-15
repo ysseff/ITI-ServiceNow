@@ -1,0 +1,170 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #222;
+}
+
+.hero {
+    min-height: 80vh;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 2;
+}
+
+.hero-content {
+    min-height: 80vh;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content h1 {
+    max-width: 900px;
+}
+
+.hero-content p {
+    max-width: 650px;
+}
+
+.icon-box {
+    font-size: 2.2rem;
+    width: 64px;
+    height: 64px;
+    border: 1px solid #f1f1f1;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.category-card,
+.gallery-card {
+    border: 1px solid #f1f1f1;
+}
+
+.product-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+.gallery-card {
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-img {
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.25s ease;
+}
+
+.gallery-label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px 12px;
+    text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.65);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.gallery-card:hover .gallery-img {
+    transform: scale(1.1);
+}
+
+.gallery-card:hover .gallery-label {
+    opacity: 1;
+}
+
+.navbar .nav-link:hover {
+    background-color: #b57539;
+}
+
+.offer-card {
+    border: 1px solid #f1f1f1;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    display: flex;
+    align-items: stretch;
+    min-height: 150px;
+}
+
+.offer-badge {
+    background-color: orange;
+    color: #fff;
+    width: 120px;
+    flex: 0 0 120px;
+    align-self: stretch;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.discount-value {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.offer-badge small {
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.offer-content {
+    padding: 18px 20px;
+    text-align: left;
+}
+
+.offer-content h3 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.offer-content p {
+    margin: 8px 0 0;
+    color: #555;
+}
+
+.coupon-code {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 7px 12px;
+    border: 2px dotted orange;
+    border-radius: 4px;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    color: orange;
+}
