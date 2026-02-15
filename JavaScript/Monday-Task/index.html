@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let books = [];
+        let choice = prompt("Enter your choice:\n1. Add books\n2. Borrow books\n3. Return books\n4. Display library report");
+        switch (choice) {
+            case "1":
+                let bookName = prompt("Enter the title of the book:");
+                let authorName = prompt("Enter the author of the book:");
+                let availableCopies = prompt("Enter the number of copies available:");
+                let borrowedCopies = prompt("Enter the number of copies borrowed:");
+                let book = {
+                    bookName: bookName,
+                    authorName: authorName,
+                    availableCopies: availableCopies,
+                    borrowedCopies: borrowedCopies
+                };
+                books.push(book);
+                alert("Book added successfully");
+                break;
+            case "2":
+                break;
+            case "3":
+                break;
+            case "4":
+                break;
+            default:
+                alert("Invalid choice");
+        }
+    </script>
+</body>
+</html>
