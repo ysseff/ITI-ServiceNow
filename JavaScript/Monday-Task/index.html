@@ -75,11 +75,22 @@
                     alert("Borrowed copies must be a valid non-negative number");
                     return
                 }
+                let borrowedCount = prompt("Enter the initial borrowed count (popularity metric):");
+                if (borrowedCount === null || borrowedCount === "") {
+                    alert("Borrowed count cannot be empty");
+                    return
+                }
+                borrowedCount = parseInt(borrowedCount);
+                if (isNaN(borrowedCount) || borrowedCount < 0) {
+                    alert("Borrowed count must be a valid non-negative number");
+                    return
+                }
                 let book = {
                     bookName: bookName,
                     authorName: authorName,
                     availableCopies: availableCopies,
-                    borrowedCopies: borrowedCopies
+                    borrowedCopies: borrowedCopies,
+                    borrowedCount: borrowedCount
                 };
                 books.push(book);
                 alert("Book added successfully")
@@ -103,6 +114,7 @@
                 }
                 books[bookToBorrow-1].availableCopies--
                 books[bookToBorrow-1].borrowedCopies++
+                books[bookToBorrow-1].borrowedCount++
                 alert("Book borrowed successfully")
             }
 
@@ -140,7 +152,9 @@
             function showReport(){
                 let report = ""
                 for (let i = 0; i < books.length; i++) {
-                    report += `${books[i].bookName} by ${books[i].authorName} (${books[i].availableCopies} available, ${books[i].borrowedCopies} borrowed)\n`;
+                    report += `${books[i].bookName} by ${books[i].authorName}\n`;
+                    report += ` - Available: ${books[i].availableCopies}, Borrowed: ${books[i].borrowedCopies}\n`;
+                    report += ` - Total times borrowed (popularity): ${books[i].borrowedCount}\n\n`;
                 }
                 report += `Total books: ${calculateTotalBooks()}\n`;
                 alert(report);
