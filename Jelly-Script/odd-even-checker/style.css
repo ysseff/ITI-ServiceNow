@@ -1,0 +1,12 @@
+body {
+    background-color: #ffffff;
+}
+.date-container {
+    background-color: #f1f1f1;
+    width: 500px;
+    border: 1px solid #b1b1b1;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 50px;
+    font-size: 18px;
+}
