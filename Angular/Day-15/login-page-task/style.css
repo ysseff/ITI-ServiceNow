@@ -1,0 +1,26 @@
+body {
+    background-color: #f7f7f7;
+}
+
+.login-container {
+    background-color: #ffffff;
+    width: 500px;
+    border: 1px solid #e8e8e8;
+    border-radius: 20px;
+    padding: 50px;
+    margin-top: 50px;
+    font-size: 18px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.login-container h1 {
+    padding-bottom: 15px;
+}
+
+.remember-me-text {
+    font-size: 16px;
+}
+
+.label-text {
+    font-size: 18px;
+}
