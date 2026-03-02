@@ -1,0 +1,47 @@
+body {
+    background-color: #ffffff;
+}
+.custom-container {
+    background-color: #f1f1f1;
+    width: 1000px;
+    border: 1px solid #b1b1b1;
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 50px;
+    font-size: 18px;
+}
+
+.label-text {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.form-control {
+    height: 45px;
+}
+.table {
+    background-color: #f1f1f1 !important;
+    --bs-table-bg: #f1f1f1;
+}
+
+.btn-danger {
+    font-size: 14px;
+}
+
+.marks-input {
+    width: 110px;
+}
+
+.sort-select {
+    width: 300px;
+}
+
+.highlight-green td, .highlight-green th {
+    background-color: #d4edda !important;
+    --bs-table-bg: #d4edda;
+}
+
+.highlight-red td, .highlight-red th {
+    background-color: #f8d7da !important;
+    --bs-table-bg: #f8d7da;
+}
