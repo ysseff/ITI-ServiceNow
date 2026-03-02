@@ -35,13 +35,3 @@ body {
 .sort-select {
     width: 300px;
 }
-
-.highlight-green td, .highlight-green th {
-    background-color: #d4edda !important;
-    --bs-table-bg: #d4edda;
-}
-
-.highlight-red td, .highlight-red th {
-    background-color: #f8d7da !important;
-    --bs-table-bg: #f8d7da;
-}

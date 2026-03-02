@@ -23,7 +23,7 @@
                         </div>
                         <div>
                             <label for="marks" class="label-text">Marks</label>
-                            <input type="number" class="form-control marks-input" id="marks" placeholder="0-100" ng-model="marks" ng-change="validateStudent()">
+                            <input type="number" class="form-control marks-input" id="marks" placeholder="0-100" ng-model="marks" ng-change="validateStudent()" min="0" max="100">
                         </div>
                         <button type="button" class="btn btn-primary text-nowrap" ng-click="addStudent()" ng-disabled="!student || student.length < 3 || marks == null">Add Student</button>
                     </div>
@@ -54,7 +54,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="student in (filteredStudents = (students | filter:{name: searchName} | orderBy: sortBy)) track by $index" ng-class="{'highlight-green': student.marks > 80, 'highlight-red': student.marks < 50}">
+                                <tr ng-repeat="student in (filteredStudents = (students | filter:{name: searchName} | orderBy: sortBy)) track by $index" ng-class="{'table-success': student.marks > 80, 'table-danger': student.marks < 50}">
                                     <th scope="row">{{$index+1}}</th>
                                     <td>{{student.name}}</td>
                                     <td>{{student.marks}}</td>
