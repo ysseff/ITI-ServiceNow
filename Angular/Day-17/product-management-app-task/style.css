@@ -1,0 +1,45 @@
+body {
+    background-color: #ffffff;
+}
+.custom-container {
+    background-color: #f1f1f1;
+    width: 1000px;
+    border: 1px solid #b1b1b1;
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 50px;
+    font-size: 18px;
+}
+
+.label-text {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.form-control, .form-select {
+    height: 45px;
+}
+.table {
+    background-color: #f1f1f1 !important;
+    --bs-table-bg: #f1f1f1;
+}
+
+.btn-danger {
+    font-size: 14px;
+}
+
+.price-input {
+    width: 130px;
+}
+
+.gender-select {
+    width: 160px;
+}
+
+.sort-select {
+    width: 300px;
+}
+
+.btn-primary {
+    height: 45px;
+}
